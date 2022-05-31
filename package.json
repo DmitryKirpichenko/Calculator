@@ -3,12 +3,15 @@
   "description": "Calculator test task",
   "version": "1.0.0",
   "author": "Kirpichenko",
+  "homepage": "https://DmitryKirpichenko.github.io/Modsen",
   "scripts": {
     "serve": "webpack serve --mode development",
     "dev": "webpack serve",
     "build": "webpack --mode production",
     "test:cypress": "start-server-and-test serve http://localhost:8080 cypress",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "predeploy":"yarn build",
+    "deploy":"gh-pages -d public"
   },
   "dependencies": {
     "@babel/preset-env": "^7.16.11",
@@ -31,6 +34,7 @@
     "babel-loader": "8.2.0",
     "cypress": "^9.5.4",
     "eslint-plugin-cypress": "^2.12.1",
+    "gh-pages": "^4.0.0",
     "start-server-and-test": "^1.14.0",
     "webpack": "5.70.0",
     "webpack-cli": "4.9.0",
