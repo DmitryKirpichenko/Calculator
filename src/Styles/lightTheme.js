@@ -1,5 +1,5 @@
 export const lightTheme = {
-    body: "#fff",
-    textColor: "#000",
-    headingColor: "#d23669"
-  }
+  body: '#fff',
+  textColor: '#000',
+  headingColor: '#d23669',
+};

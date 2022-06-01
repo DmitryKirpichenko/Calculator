@@ -1,6 +1,5 @@
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const MenuHrefStyle = styled.a`
     outline: none;
@@ -12,7 +11,7 @@ export const MenuHrefStyle = styled.a`
       color : white;
     }
   }
-`
+`;
 // const Link = ({className, children}) => (
 //   <a className={className}>{children}</a>
 // )
@@ -26,4 +25,4 @@ export const MenuLinkStyle = styled(Link)`
     border-color: #a4c2db;
     }
 
-`
+`;

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const MainKeypad = styled.div`
 
@@ -10,7 +10,7 @@ export const MainKeypad = styled.div`
    grid-row-gap: 10px;
    grid-column-gap: 10px;
 
-`
+`;
 export const Key = styled.div`
     border: 1px solid;
     width: 50px;
@@ -25,7 +25,7 @@ export const Key = styled.div`
     border-color: #a4c2db;
     }
 
-`
+`;
 export const LongKey = styled.div`
     border: 1px solid;
     width: 100%;
@@ -40,4 +40,4 @@ export const LongKey = styled.div`
     border-color: #a4c2db;
     }
 
-`
+`;

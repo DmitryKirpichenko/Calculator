@@ -1,3 +1,3 @@
-export * from './router'
-export * from './color'
-export * from './variables'
+export * from './router';
+export * from './color';
+export * from './variables';

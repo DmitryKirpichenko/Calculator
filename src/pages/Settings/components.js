@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const SettingsStyled = styled.div`
   width: 20%;
@@ -7,23 +7,23 @@ export const SettingsStyled = styled.div`
   h1{
     font-size: 30px;
   }
-`
+`;
 const commonStyle = `
   width: 100%;
   height: 40px;
-`
+`;
 export const SwitchThemeStyled = styled.div`
   margin-top: 20px;
   margin-left: 10px;
-  `
+  `;
 export const SelectStyled = styled.select`
   ${commonStyle};
   border-radius: 5px;
   cursor: pointer;
-  `
+  `;
 export const OptionStyled = styled.option`
   ${commonStyle};
-`
+`;
 
 export const ButtonStyled = styled.button`
   ${commonStyle};
@@ -35,4 +35,4 @@ export const ButtonStyled = styled.button`
   :hover {
     border-color: #a4c2db;
   }
-`
+`;

@@ -57,7 +57,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    alias:{
+    alias: {
       App: path.resolve(__dirname, 'src/App/'),
       Display: path.resolve(__dirname, 'src/components/Display/'),
       Header: path.resolve(__dirname, 'src/components/Header/'),
@@ -70,8 +70,7 @@ module.exports = {
       Utils: path.resolve(__dirname, 'src/utils/'),
       Settings: path.resolve(__dirname, 'src/pages/Settings/'),
       Styles: path.resolve(__dirname, 'src/Styles/index'),
-      ControlPanel: path.resolve(__dirname, 'src/containers/ControlPanel/')
-
+      ControlPanel: path.resolve(__dirname, 'src/containers/ControlPanel/'),
 
     },
   },

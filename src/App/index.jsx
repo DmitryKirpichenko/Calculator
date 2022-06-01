@@ -1,23 +1,22 @@
-import React, { useState } from 'react'
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import Header from 'Header/index'
-import { HOME_PAGE_ROUTE, SETTINGS_PAGE_ROUTE } from 'Constants/index'
-import { useSelector } from "react-redux";
-import HomePage from 'Home/index'
-import SettingsPage from 'Settings/wrapper'
+import React from 'react';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Header from 'Header/index';
+import { HOME_PAGE_ROUTE, SETTINGS_PAGE_ROUTE } from 'Constants/index';
+import { useSelector } from 'react-redux';
+import HomePage from 'Home/index';
+import SettingsPage from 'Settings/wrapper';
 
-import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme, GlobalStyles } from "Styles";
+import { ThemeProvider } from 'styled-components';
+import { darkTheme, lightTheme, GlobalStyles } from 'Styles';
 import { withErrorBoundary } from 'react-error-boundary';
 // const HomePage = lazy(() => import('../pages/Home/index.jsx'))
 
-function App () {
-
-  const theme = useSelector((state) => state.theme.value)
+function App() {
+  const theme = useSelector((state) => state.theme.value);
 
   return (
     <BrowserRouter>
-      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyles />
         <Header />
         <Routes>
@@ -33,9 +32,9 @@ function App () {
       </ThemeProvider>
 
     </BrowserRouter>
-  )
+  );
 }
 
 export default withErrorBoundary(App, {
-  fallback: <div>Something went wrong</div>
-})
+  fallback: <div>Something went wrong</div>,
+});

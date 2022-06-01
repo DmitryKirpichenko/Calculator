@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const ScreenDiv = styled.div`
     font-size: 20pt;
@@ -6,4 +6,4 @@ export const ScreenDiv = styled.div`
     align-items: center;
     justify-content: right;
 
-`
+`;

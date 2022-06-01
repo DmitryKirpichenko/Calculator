@@ -1,24 +1,27 @@
-import React, { useState } from 'react'
-import { StyledButton, StyledDiv } from './components'
-import History from 'History/index'
-import propTypes from "prop-types";
+import React, { useState } from 'react';
+import History from 'History/index';
+import propTypes from 'prop-types';
+import { StyledButton, StyledDiv } from './components';
 
-export default function ControlPanel({className}) {
-    let [display, setDisplay] = useState(false)
+export default function ControlPanel({ className }) {
+  const [display, setDisplay] = useState(false);
 
-    function clickHandle(event) {
-        display === false ? setDisplay(true) : setDisplay(false);
+  function clickHandle() {
+    if (display === false) {
+      setDisplay(true);
+    } else {
+      setDisplay(false);
     }
+  }
 
-    return (
-        <StyledDiv className={className}>
-            <StyledButton onClick={e => clickHandle(e)}>History</StyledButton>
-            {display === true ? <History /> : <div>History hidden</div>}
-        </StyledDiv>
+  return (
+    <StyledDiv className={className}>
+      <StyledButton onClick={(e) => clickHandle(e)}>History</StyledButton>
+      {display === true ? <History /> : <div>History hidden</div>}
+    </StyledDiv>
 
-
-    )
+  );
 }
 ControlPanel.propTypes = {
-    data: propTypes.string
-}
+  data: propTypes.string,
+};

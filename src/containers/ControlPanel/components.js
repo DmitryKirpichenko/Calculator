@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
 
@@ -9,7 +9,7 @@ text-align: center;
 margin: 0 10px
 dispay: flex;
 align-items: center
-`
+`;
 
 export const StyledButton = styled.div`
 
@@ -23,4 +23,4 @@ cursor: pointer;
   border-color: #a4c2db;
 }
 
-`
+`;

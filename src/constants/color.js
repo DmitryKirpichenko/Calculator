@@ -1,1 +1,1 @@
-export const HEADER_COLOR = 'gray'
+export const HEADER_COLOR = 'gray';
