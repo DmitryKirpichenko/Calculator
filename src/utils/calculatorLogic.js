@@ -120,8 +120,19 @@ const calculator = new Calculator();
 
 export default function mycalc(mathstr) {
   try {
-    mathstr = mathstr.split(' ').filter((x) => x !== '');
-    console.log(mathstr);
+    mathstr = mathstr.split(' ').filter((x) => x !== '').map((item) => {
+      if (/^\.\d+$/.test(item)) {
+        return (0 + item)
+      }
+      return item
+    });
+    for(let i = 0; i < mathstr.length; i++){
+      if(/^\d+$|^\d+\.\d+$/.test(mathstr[i]) && mathstr[i + 1] === '('){
+        mathstr.splice(i + 1, 0, '*')
+        i++
+      }
+
+    }
 
     function helper(position) {
       if (opsstack[opsstack.length - 1] === '-' && opsstack[opsstack.length - 2] === '(' && mathstr[position - 3] === '(') {
@@ -150,6 +161,13 @@ export default function mycalc(mathstr) {
           helper(i);
         }
         if (mathstr[i] === ')') {
+          if (mathstr[i - 2] === '(') {
+            mathstr.pop()
+            opsstack.pop()
+            mathstr.splice(mathstr.length - 2, 1)
+            continue;
+          }
+
           for (let j = opsstack.length - 1; j > 0; j--) {
             helper(i);
             if (opsstack[j - 1] === '(') {
@@ -168,7 +186,8 @@ export default function mycalc(mathstr) {
 
     const res = numsteck[0];
     numsteck.length = 0;
-    return res;
+    
+    return parseFloat(res).toFixed(3);
   } catch (error) {
     console.log(error);
   } finally {
