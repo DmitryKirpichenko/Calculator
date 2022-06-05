@@ -17,12 +17,16 @@ export const MenuHrefStyle = styled.a`
 // )
 
 export const MenuLinkStyle = styled(Link)`
-    text-decoration: none;
     padding: 0 0 0 6px;
     cursor: pointer;
-
+    :link{
+      color : white;
+    }
+    :visited{
+      color : white;
+    }
     :hover {
-    border-color: #a4c2db;
+    color: black;
     }
 
 `;

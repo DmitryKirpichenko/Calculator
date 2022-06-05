@@ -4,9 +4,8 @@ export const StyledDiv = styled.div`
 
 overflow-y: auto;
 border-left: 2px solid;
-height: 200px;
+height: 500px;
 text-align: center;
-margin: 0 10px
 dispay: flex;
 align-items: center
 `;

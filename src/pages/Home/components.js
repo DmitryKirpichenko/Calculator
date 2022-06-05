@@ -4,7 +4,7 @@ import Keypad from 'Keypad/index';
 import ControlPanel from 'ControlPanel/index';
 
 export const MainPage = styled.div`
-heigth: 500px;
+height: 200px;
 display: grid; 
 grid-template-columns: 5fr 2fr; 
 grid-template-rows: 2fr 6fr; 
@@ -22,11 +22,10 @@ border-bottom: 2px solid;
 export const StyledControlePanel = styled(ControlPanel)`
 grid-area: controlePanel;
 border-left: 2px solid;
-margin: 0 10px
 overflow-y: auto;
 `;
 
 export const StyledKeypad = styled(Keypad)`
 grid-area: keypad; 
-margin: 0 0 0 10px;
+margin: 10px 0 0 10px;
 `;
