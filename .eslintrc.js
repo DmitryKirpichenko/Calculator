@@ -24,5 +24,11 @@ module.exports = {
     'import/no-unresolved': 'off',
     'react/prop-types': 'off',
     'no-param-reassign': 'off',
+    'max-classes-per-file': 'off',
+    'class-methods-use-this': 'off',
+    'no-plusplus': 'off',
+    'no-restricted-globals': 'off',
+    'no-continue': 'off',
+    'consistent-return': 'off',
   },
 };

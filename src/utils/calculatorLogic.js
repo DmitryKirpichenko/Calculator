@@ -80,7 +80,7 @@ class RemainderDivideCommand {
     return currentValue % this.valueToDivide;
   }
 
-  undo(currentValue) {
+  undo() {
     return 0;
   }
 }
@@ -113,58 +113,65 @@ function preor(value, oper) {
     case '%': {
       return new RemainderDivideCommand(value);
     }
+    default: {
+      return 0;
+    }
   }
 }
 
 const calculator = new Calculator();
 
 export default function mycalc(mathstr) {
+  function helper(position) {
+    if (opsstack[opsstack.length - 1] === '-' && opsstack[opsstack.length - 2] === '(' && mathstr[position - 3] === '(') {
+      calculator.executeCommand(new AddCommand(parseFloat(0)));
+
+      calculator.executeCommand(preor(
+        parseFloat(numsteck[numsteck.length - 1]),
+        opsstack[opsstack.length - 1],
+      ));
+      numsteck.pop();
+    } else {
+      calculator.executeCommand(new AddCommand(parseFloat(numsteck[numsteck.length - 2])));
+
+      calculator.executeCommand(preor(
+        parseFloat(numsteck[numsteck.length - 1]),
+        opsstack[opsstack.length - 1],
+      ));
+      numsteck.pop();
+      numsteck.pop();
+    }
+
+    numsteck.push(parseFloat(calculator.value));
+    opsstack.pop();
+    calculator.value = 0;
+  }
   try {
     mathstr = mathstr.split(' ').filter((x) => x !== '').map((item) => {
       if (/^\.\d+$/.test(item)) {
-        return (0 + item)
+        return (0 + item);
       }
-      return item
+      return item;
     });
-    for(let i = 0; i < mathstr.length; i++){
-      if(/^\d+$|^\d+\.\d+$/.test(mathstr[i]) && mathstr[i + 1] === '('){
-        mathstr.splice(i + 1, 0, '*')
-        i++
+    for (let i = 0; i < mathstr.length; i++) {
+      if (/^\d+$|^\d+\.\d+$/.test(mathstr[i]) && mathstr[i + 1] === '(') {
+        mathstr.splice(i + 1, 0, '*');
+        i++;
       }
-
-    }
-
-    function helper(position) {
-      if (opsstack[opsstack.length - 1] === '-' && opsstack[opsstack.length - 2] === '(' && mathstr[position - 3] === '(') {
-        calculator.executeCommand(new AddCommand(parseFloat(0)));
-
-        calculator.executeCommand(preor(parseFloat(numsteck[numsteck.length - 1]), opsstack[opsstack.length - 1]));
-        numsteck.pop();
-      } else {
-        calculator.executeCommand(new AddCommand(parseFloat(numsteck[numsteck.length - 2])));
-
-        calculator.executeCommand(preor(parseFloat(numsteck[numsteck.length - 1]), opsstack[opsstack.length - 1]));
-        numsteck.pop();
-        numsteck.pop();
-      }
-
-      numsteck.push(parseFloat(calculator.value));
-      opsstack.pop();
-      calculator.value = 0;
     }
 
     for (let i = 0; i < mathstr.length; i++) {
       if (!isNaN(parseFloat(mathstr[i]))) numsteck.push(mathstr[i]);
 
       if (opsstack.length) {
-        if (operationPriorities[opsstack[opsstack.length - 1]] >= operationPriorities[mathstr[i]] && mathstr[i] != '(' && mathstr[i] != ')') {
+        if (operationPriorities[opsstack[opsstack.length - 1]] >= operationPriorities[mathstr[i]] && mathstr[i] !== '(' && mathstr[i] !== ')') {
           helper(i);
         }
         if (mathstr[i] === ')') {
           if (mathstr[i - 2] === '(') {
-            mathstr.pop()
-            opsstack.pop()
-            mathstr.splice(mathstr.length - 2, 1)
+            mathstr.pop();
+            opsstack.pop();
+            mathstr.splice(mathstr.length - 2, 1);
             continue;
           }
 
@@ -186,7 +193,6 @@ export default function mycalc(mathstr) {
 
     const res = numsteck[0];
     numsteck.length = 0;
-    
     return parseFloat(res).toFixed(3);
   } catch (error) {
     console.log(error);
